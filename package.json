@@ -10,6 +10,7 @@
     "http-adapters",
     "jwt-authentication-strategy",
     "memory-storages",
+    "mongo-s3-storages",
     "oidc-authentication-strategy",
     "pg-s3-storages",
     "sdk",
