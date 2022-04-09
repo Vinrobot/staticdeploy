@@ -22,6 +22,8 @@ export default interface IConfig {
     oidcClientId?: string;
     oidcProviderName?: string;
 
+    // mongo-s3-storages configurations
+    mongoUrl?: string;
     // pg-s3-storages configurations
     postgresUrl?: string;
     s3Bucket?: string;

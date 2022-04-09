@@ -12,6 +12,10 @@ jobs:
           MINIO_ACCESS_KEY: accessKeyId
           MINIO_SECRET_KEY: secretAccessKey
         command: server /data
+      - image: mongo
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: password
     steps:
       - checkout
       - run:

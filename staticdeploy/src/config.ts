@@ -41,6 +41,8 @@ const config: IConfig = {
     oidcClientId: env("OIDC_CLIENT_ID"),
     oidcProviderName: env("OIDC_PROVIDER_NAME"),
 
+    // mongo-s3-storages configurations
+    mongoUrl: env("MONGO_URL"),
     // pg-s3-storages configurations
     postgresUrl: env("POSTGRES_URL"),
     s3Bucket: env("S3_BUCKET"),
