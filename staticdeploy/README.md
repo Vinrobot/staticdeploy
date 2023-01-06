@@ -53,14 +53,23 @@ The following environment variables can be used to configure the server:
 - `OIDC_CLIENT_ID`: the client id of the OpenID Connect application
 - `OIDC_PROVIDER_NAME`: the name to show in the "Login with" interface
 
-#### pg-s3 storages configurations
+#### Storages configurations
 
 When setting these config (all of them, save for `S3_ENABLE_GCS_COMPATIBILITY`,
 which is optional), the pg-s3 storages module will be enabled (the memory one is
 used otherwise):
 
+The storage priority is the following:
+- if `POSTGRES_URL` is set, uses the
+  [PostgreSQL](https://www.postgresql.org/) database
+- if `MONGO_URL` is set, uses the
+  [MongoDB](https://www.mongodb.com/) database
+- Otherwise, uses the in-memory storages
+
 - `POSTGRES_URL`: connection string for the
   [PostgreSQL](https://www.postgresql.org/) database
+- `MONGO_URL`: connection string for the
+  [MongoDB](https://www.mongodb.com/) database
 - `S3_BUCKET`: name of the S3 bucket to use for storing static content
 - `S3_ENDPOINT`: endpoint of the S3 server
 - `S3_ACCESS_KEY_ID`: access key id for the S3 server

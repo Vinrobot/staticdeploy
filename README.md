@@ -31,6 +31,8 @@ This is the StaticDeploy monorepo, which includes several different projects:
   (entities, usecases, and gateway interfaces)
 - [pg-s3-storages](./pg-s3-storages): gateway for storage resources backed by
   [S3](https://aws.amazon.com/s3/) and [PostgreSQL]
+- [mongo-s3-storages](./mongo-s3-storages): gateway for storage resources backed by
+  [S3](https://aws.amazon.com/s3/) and [MongoDB](https://www.mongodb.com/)
 - [memory-storages](./memory-storages): in-memory gateway for storage resources
 - [storages-test-suite](./storages-test-suite): test suite for storages
 - [tar-archiver](./tar-archiver): implementation of the core `IArchiver`
