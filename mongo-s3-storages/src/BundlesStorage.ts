@@ -10,6 +10,7 @@ import { Db, Collection } from "mongodb";
 import { flatMap, map } from "lodash";
 import { join } from "path";
 
+import { withoutId } from "./common/mongo";
 import concurrentForEach from "./common/concurrentForEach";
 import convertErrors from "./common/convertErrors";
 import tables from "./common/tables";
@@ -30,10 +31,7 @@ export default class BundlesStorage implements IBundlesStorage {
     }
 
     async findOne(id: string): Promise<IBundleWithoutAssetsContent | null> {
-        const mongoBundle = await this.collection.findOne({ id });
-        if (!mongoBundle) return null;
-        const { _id, ...bundle } = mongoBundle;
-        return bundle;
+        return withoutId(await this.collection.findOne({ id }));
     }
 
     async findLatestByNameAndTag(

@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  static:
+    image: staticdeploy/staticdeploy:latest
+    environment:
+      MANAGEMENT_HOSTNAME: local.staticdeploy.io
+      ENFORCE_AUTH: 'false'
+
+      MONGO_URL: mongodb://root:password@mongo:27017/test?authSource=admin
+      S3_BUCKET: test
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY_ID: accessKeyId
+      S3_SECRET_ACCESS_KEY: secretAccessKey
+    ports:
+      - 127.0.0.1:80:80
+
+  minio:
+    image: minio/minio
+    command: server /data
+    environment:
+      MINIO_ACCESS_KEY: accessKeyId
+      MINIO_SECRET_KEY: secretAccessKey
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - 127.0.0.1:27017:27017
